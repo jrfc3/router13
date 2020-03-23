@@ -40,10 +40,10 @@ public class NetworkExpander implements PathExpander<String> {
         // If there is no Layer 3 next hop, go to Layer 2
         if (relationships.isEmpty()) {
             // Layer 2
-            for (Relationship translates_to : last.getRelationships(RelationshipTypes.TRANSLATES_TO, Direction.OUTGOING)) {
-                String ip = (String) translates_to.getProperty("ip");
+            for (Relationship attached_to : last.getRelationships(RelationshipTypes.ATTACHED_TO, Direction.OUTGOING)) {
+                String ip = (String) attached_to.getProperty("ip");
                 if (ip.equals(this.ip)) {
-                    relationships.add(translates_to);
+                    relationships.add(attached_to);
                 }
             }
             String mac = "";
@@ -52,10 +52,10 @@ public class NetworkExpander implements PathExpander<String> {
                 mac = (String) lastRel.getProperty("mac", "");
             }
 
-            for (Relationship connects_to : last.getRelationships(RelationshipTypes.CONNECTS_TO, Direction.OUTGOING)) {
-                String mac_too = (String) connects_to.getProperty("mac", "");
+            for (Relationship nacl_to : last.getRelationships(RelationshipTypes.NACL_TO, Direction.OUTGOING)) {
+                String mac_too = (String) nacl_to.getProperty("mac", "");
                 if (mac.equals(mac_too)) {
-                    relationships.add(connects_to);
+                    relationships.add(nacl_to);
                 }
             }
         }
