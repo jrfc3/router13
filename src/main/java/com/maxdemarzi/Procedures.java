@@ -21,9 +21,9 @@ public class Procedures {
     @Context
     public Log log;
 
-    @Procedure(name = "com.maxdemarzi.router", mode = Mode.READ)
-    @Description("CALL com.maxdemarzi.router(from, to) - traverse paths")
-    public Stream<PathResult> router(@Name("from") String from, @Name("to") String to) {
+    @Procedure(name = "com.maxdemarzi.routertbl", mode = Mode.READ)
+    @Description("CALL com.maxdemarzi.routertbl(from, to) - traverse paths")
+    public Stream<PathResult> routertbl(@Name("from") String from, @Name("to") String to) {
         Node router = db.findNode(Labels.Router, "ip", from);
         Node server = db.findNode(Labels.Server, "ip", to);
         if (router != null && server != null) {
