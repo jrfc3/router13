@@ -49,12 +49,12 @@ public class NetworkExpander implements PathExpander<String> {
             String mac = "";
             Relationship lastRel = path.lastRelationship();
             if (lastRel != null) {
-                mac = (String) lastRel.getProperty("mac", "");
+                mac = (String) lastRel.getProperty("nacl", "");
             }
 
             for (Relationship nacl_to : last.getRelationships(RelationshipTypes.NACL_TO, Direction.OUTGOING)) {
-                String mac_too = (String) nacl_to.getProperty("mac", "");
-                if (mac.equals(mac_too)) {
+                String nacl_too = (String) nacl_to.getProperty("nacl", "");
+                if (nacl.equals(nacl_too)) {
                     relationships.add(nacl_to);
                 }
             }

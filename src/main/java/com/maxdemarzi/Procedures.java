@@ -24,16 +24,16 @@ public class Procedures {
     @Procedure(name = "com.maxdemarzi.routertbl", mode = Mode.READ)
     @Description("CALL com.maxdemarzi.routertbl(from, to) - traverse paths")
     public Stream<PathResult> routertbl(@Name("from") String from, @Name("to") String to) {
-        Node router = db.findNode(Labels.Router, "ip", from);
-        Node server = db.findNode(Labels.Server, "ip", to);
-        if (router != null && server != null) {
+        Node vpc = db.findNode(Labels.VPC, "ip", from);
+        Node ec2 = db.findNode(Labels.EC2, "ip", to);
+        if (vpc != null && ec2 != null) {
             TraversalDescription td = db.traversalDescription()
                     .depthFirst()
                     .expand(new NetworkExpander(to))
                     .evaluator(Evaluators.endNodeIs(Evaluation.INCLUDE_AND_PRUNE,
-                            Evaluation.EXCLUDE_AND_CONTINUE, server));
+                            Evaluation.EXCLUDE_AND_CONTINUE, ec2));
 
-            return td.traverse(router).iterator().stream().map(PathResult::new);
+            return td.traverse(vpc).iterator().stream().map(PathResult::new);
         }
         return Stream.of(new PathResult(null));
     }
