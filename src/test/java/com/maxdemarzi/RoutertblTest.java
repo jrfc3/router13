@@ -74,13 +74,13 @@ public class RoutertblTest {
         "CREATE (r2)-[:ATTACHED_TO {ip:'10.175.122.48', mac:'1402.ec86.c674' }]->(i3)" +
         "CREATE (r2)-[:ATTACHED_TO {ip:'10.175.122.65', mac:'0000.0c9f.f0cd' }]->(i4)" +
         "CREATE (r2)-[:ATTACHED_TO {ip:'10.175.122.66', mac:'0081.c4dc.6161' }]->(i4)" +
-        "CREATE (i3)-[:NACL_TO { port:'Po111', nacl:'0081.c4dc.6161'}]->(s4)" +
-        "CREATE (i3)-[:NACL_TO { port:'Po2', nacl:'1402.ec86.c610'}]->(s3)" +
-        "CREATE (i3)-[:NACL_TO { port:'Po2', nacl:'1402.ec86.c634'}]->(s3)" +
-        "CREATE (i3)-[:NACL_TO { port:'Po3', nacl:'1402.ec86.c63c'}]->(s5)" +
-        "CREATE (i3)-[:NACL_TO { port:'Po111', nacl:'1402.ec86.c640'}]->(s4)" +
-        "CREATE (s3)-[:NACL_TO { port:'Eth1/9', nacl:'1402.ec86.c610' }]->(ser2)" +
-        "CREATE (s3)-[:NACL_TO { port:'Eth1/10', nacl:'1402.ec86.c634' }]->(ser3)" +
-        "CREATE (s5)-[:NACL_TO { port:'Eth1/8', nacl:'1402.ec86.c63c' }]->(ser1)";
+        "CREATE (i3)-[:NACL_TO { port:'Po111', mac:'0081.c4dc.6161'}]->(s4)" +
+        "CREATE (i3)-[:NACL_TO { port:'Po2', mac:'1402.ec86.c610'}]->(s3)" +
+        "CREATE (i3)-[:NACL_TO { port:'Po2', mac:'1402.ec86.c634'}]->(s3)" +
+        "CREATE (i3)-[:NACL_TO { port:'Po3', mac:'1402.ec86.c63c'}]->(s5)" +
+        "CREATE (i3)-[:NACL_TO { port:'Po111', mac:'1402.ec86.c640'}]->(s4)" +
+        "CREATE (s3)-[:NACL_TO { port:'Eth1/9', mac:'1402.ec86.c610' }]->(ser2)" +
+        "CREATE (s3)-[:NACL_TO { port:'Eth1/10', mac:'1402.ec86.c634' }]->(ser3)" +
+        "CREATE (s5)-[:NACL_TO { port:'Eth1/8', mac:'1402.ec86.c63c' }]->(ser1)";
 
 }

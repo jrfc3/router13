@@ -6,7 +6,7 @@ public enum Labels implements Label {
     VPC,
     Subnet,
     IGW,
-    VPC,
+    VPGW,
     EC2
 
 }
